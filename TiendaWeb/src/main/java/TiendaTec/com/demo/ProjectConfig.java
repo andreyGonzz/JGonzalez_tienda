@@ -15,6 +15,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/ejemplo2.html").setViewName("ejemplo2");
+        registry.addViewController("/ejemplo3.html").setViewName("ejemplo3");
     }
 
     /* El siguiente método se utilizar para publicar en la nube, independientemente  */
