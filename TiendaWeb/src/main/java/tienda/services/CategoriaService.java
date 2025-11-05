@@ -1,5 +1,5 @@
 package tienda.services;
- 
+
 import tienda.domain.Categoria;
 import tienda.repository.CategoriaRepository;
 import java.io.IOException;
@@ -16,15 +16,15 @@ public class CategoriaService {
 
     @Autowired
     private CategoriaRepository categoriaRepository;
-    
-    @Transactional(readOnly=true)
+
+    @Transactional(readOnly = true)
     public List<Categoria> getCategorias(boolean activo) {
         if (activo) {
             return categoriaRepository.findByActivoTrue();
         }
         return categoriaRepository.findAll();
     }
-    
+
     @Transactional(readOnly = true)
     public Optional<Categoria> getCategoria(Integer idCategoria) {
         return categoriaRepository.findById(idCategoria);
@@ -36,7 +36,7 @@ public class CategoriaService {
     @Transactional
     public void save(Categoria categoria, MultipartFile imagenFile) {
         categoria = categoriaRepository.save(categoria);
-        if (!imagenFile.isEmpty()) { //Si no está vacío... pasaron una imagen...            
+        if (!imagenFile.isEmpty()) { // Si no está vacío... pasaron una imagen...
             try {
                 String rutaImagen = firebaseStorageService.uploadImage(
                         imagenFile, "categoria",
@@ -63,4 +63,7 @@ public class CategoriaService {
             throw new IllegalStateException("No se puede eliminar la categoria. Tiene datos asociados.", e);
         }
     }
+
+   
+  
 }

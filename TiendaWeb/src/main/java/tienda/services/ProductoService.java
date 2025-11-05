@@ -1,5 +1,6 @@
 package tienda.services;
 
+import tienda.domain.Categoria;
 import tienda.domain.Producto;
 import tienda.repository.ProductoRepository;
 import java.io.IOException;
@@ -78,5 +79,9 @@ public class ProductoService {
     @Transactional(readOnly = true)
     public List<Producto> consultaSQL(double precioInf, double precioSup) {
         return productoRepository.consultaSQL(precioInf, precioSup);
+    }
+
+     public List<Producto> findByIdProductoBetween(Integer primero, Integer segundo) {
+        return productoRepository.findByIdProductoBetween(primero, segundo);
     }
 }
