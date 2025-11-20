@@ -1,6 +1,5 @@
 package tienda.services;
 
-import tienda.domain.Categoria;
 import tienda.domain.Producto;
 import tienda.repository.ProductoRepository;
 import java.io.IOException;

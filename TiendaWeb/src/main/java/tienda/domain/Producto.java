@@ -5,8 +5,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import lombok.Data;
 
-@Data
-@Entity
+
+@Data // ? Etiqueta de Lombok, escribe getters y setters automaticamente
+@Entity     // ! Etiqueta de JPA
 @Table(name = "producto")
 public class Producto implements Serializable {
 
